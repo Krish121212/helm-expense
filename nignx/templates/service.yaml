@@ -1,0 +1,13 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx
+spec:
+  selector:
+    name: nginx
+    purpose: helm
+    tier: webtier
+  ports:
+  - protocol: TCP
+    port: 8080 #service port
+    targetPort: {{ .Values.configmap.port }} #Target port

@@ -1,0 +1,27 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nginx-helm
+  # deployment resource labels
+  labels:
+    name: nginx
+    purpose: helm
+    tier: webtier
+spec:
+  replicas: {{ .Values.deployment.replicas }}
+  selector:
+    matchLabels:
+      name: nginx
+      purpose: helm
+      tier: webtier
+  # pod defination
+  template:
+    metadata:
+      labels:
+        name: nginx
+        purpose: helm
+        tier: webtier
+    spec:
+      containers:
+      - name: nginx
+        image: nginx:{{ .Values.deployment.imageVersion }}
