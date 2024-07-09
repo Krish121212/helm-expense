@@ -1,7 +1,5 @@
 configmap:
-  targetPort: 8080
+  port: 8080
 deployment:
   imageVersion: v1.0
-  replicas: 1
-service:
-  targetPort: 8080
+  replicas: 2
