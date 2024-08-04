@@ -1,5 +1,14 @@
 deployment:
   imageVersion: v1.0
   replicas: 2
+  # Above is for key value pairs
+  # below is for block, check it on deployment
+  resourcesize:
+    limits:
+      cpu: 0.2
+      memory: 500Mi
+    requests:
+      cpu: 0.2
+      memory: 500Mi
 service:
   targetPort: 8080

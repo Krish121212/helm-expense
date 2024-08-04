@@ -26,6 +26,11 @@ spec:
       containers:
       - name: backend
         image: devopskk/backend:{{ .Values.deployment.imageVersion }}
+        imagePullPolicy: Always
         envFrom:
         - configMapRef:
             name: backend
+        resources:
+          {{- toYaml .Values.deployment.resourcesize | nindent 10 }}
+
+# we called entire block above.
